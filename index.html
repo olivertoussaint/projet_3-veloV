@@ -1,0 +1,156 @@
+    <!DOCTYPE html>
+    <html lang="fr">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Projet n°3 étudiant Developpeur web junior à Openclassooms. Application pour réservation de Velo'v sur la ville de Lyon et sa proche banlieue. Projet réalisé en JavaScript ES5, Bootstrap 3.3.7, Font-awesome 4.7.0 et l'API JC Decaux en temps réel.">
+        <meta name="author" content="Olivier Toussaint">
+        <!--Favincon-->
+        <link rel="icon" type="image/png" href="./images/favicon.png" />
+        <!-- Bootstrap core CSS -->    
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet">       
+        <!-- Font-awesome library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Main stylesheet -->
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <title>Velo'V</title>
+    </head>
+
+    <body>
+        <!--HEADER-->
+        <header>
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="nav-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <div id="logo-contract"><img src="./images/logo-contract.png" alt="logo marque Velo'v" /></div>
+                            <div id="logo-contractor"><img src="./images/logo-contractor.png" alt="logo Grand Lyon" /></div>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#slider" class="active">Accueil</a></li>
+                                <li><a href="#map">Carte</a></li>
+                                <li><a href="#footer">Réservation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!--SLIDER-->
+        <section id="slider" class="container">
+            <h2>carrousel</h2>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="slide"><img src="./images/visuel_mode-emploi.jpg" alt="vélo'V ville de Lyon" class="img-thumbnail" id="image" /></div>
+                    <H1 id="titre">1/5 Zoomer sur la carte pour choisir une des stations.</H1>
+                    <div id="slideImg"><img src="./images/zoom.PNG" class="img-circle" alt="image explicative" id="img-bulle" /></div>
+                    <div class="btn-left" id="prev" title="image précédente"><img src="./images/prev.png" alt="image précédente" /></div>
+                    <div class="btn-right" id="next" title="image suivante"><img src="./images/next.png" alt="image suivante" /></div>
+                </div>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                     <button id="auto" type="button" class=" col-xs-6  btn btn-custom" title="reprise">Play</button>
+                     <button id="pause" type="button" class="col-xs-6 btn btn-danger" title="pause">Pause</button>
+                </div>
+            </div>
+        </section>
+        <!--API Google Map-->
+        <section class="container">
+            <h2>carte</h2>
+            <div class="row">
+                <div id="map" class="col-md-12 col-lg-12">
+                </div>
+                <aside id="stations">
+                    <div class="container">
+                        <div class="row">
+                            <div id="infos" class="col-sm-12 col-md-offset-1 col-md-3">
+                                <h3>Détails de la station</h3>
+                                <span class="close" title="fermer">&times;</span>
+                                <ul>
+                                    <li class="main_title">Nom de la station</li>
+                                    <li id="station_name"></li>
+                                    <li class="main_title">Adresse de la station</li>
+                                    <li id="bikeAdress"></li>
+                                    <li class="main_title">&Eacute;tat de la station</li>
+                                    <li id="status"></li>
+                                    <li class="main_title">Place(s) libre(s)</li>
+                                    <li id="available_bike_stands"></li>
+                                    <li class="main_title">Nombre de vélo(s) disponible(s)</li>
+                                    <li id="available_bikes"></li>
+                                </ul>
+                                <button class="btn btn-success" id="booking">Réserver</button>
+                                <button class="btn btn-danger" id="cancel">Annuler</button>
+                                <div id="signaturesCanvas">
+                                    <h3 id="signatures">Signature</h3>
+                                    <span id="signInfo"></span>
+                                    <canvas id="canvas"></canvas>
+                                    <div id="button" class="col-md-offset-2 col-xs-offset-3">
+                                        <button class="btn btn-success" id="validation">Valider</button>
+                                        <button class="btn btn-danger" id="erase">Effacer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-12" id="reservationFooter">
+                </div>
+                <div id="countdown"></div>
+                <button class="btn btn-danger" id="annulation">Annuler la réservation</button>
+                <div>
+                    <p class="text-danger"><span class="fa fa-exclamation" aria-hidden="true"></span> Ceci est un site de démonstration.</p>
+                </div>
+            </div>
+        </section>
+        <!--FOOTER-->
+            <foooter id="footer" class="">
+                <p>Olivier</p>
+            </footer>
+        <!-- Bootstrap core JavaScript
+                    ================================================== -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="./dist/js/bootstrap.min.js"></script>
+        <!--controle du scroll-->
+        <script src="./assets/js/smooth_scroll.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+        <!--Google Maps-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.34&key=AIzaSyDfd5_S7FhKgI4-WQOzIhjKCKOre_hS_DQ"></script>
+        <!-- local map -->
+        <script src="./js/map.js"></script>
+        <!--fonction appel ajax-->
+        <script src="./js/ajax.js"></script>
+        <!--tooltip.js-->
+        <script src="./js/tooltip.js"></script>
+        <!--Canvas-->
+        <script src="./js/canvas.js"></script>
+        <!--Slider-->
+        <script src="./js/slider.js"></script>
+        <!--iconstation.js-->
+        <script src="./js/iconstation.js"></script>
+        <!--Aside-->
+        <script src="./js/aside.js"></script>
+        <!--Events-->
+        <script src="./js/events.js"></script>
+        <!--Compte à rebours-->
+        <script src="./js/countdown.js"></script>
+        <!--Regroupeur de markers-->
+        <script src="./assets/js/marker_clusterer.js"></script>
+        <!--Main-->
+        <script src="./js/main.js"></script>
+    </body>
+
+    </html>

@@ -1,0 +1,487 @@
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        padding-top: 10px;
+        background-image: url("../images/fond.jpg");
+        background-position: center;
+        background-size: cover;
+
+    }
+
+    h2 {
+        display: none;
+    }
+
+    /* *****SECTION HEADER***** */
+    /* .container-fluid,
+    footer {
+        background-color: rgba(255, 250, 250, 0.9);
+    } */
+
+    .navbar-default .navbar-collapse,
+    .navbar-default .navbar-form {
+        position: relative;
+        border-color: transparent;
+        left: calc(50% - 100px);
+        bottom: 30px;
+    }
+
+    .navbar-default {
+       background-color: red;
+       background-image: linear-gradient(to right, red , yellow); 
+    }
+
+    .navbar-nav>li>a {
+        font-size: 18px;
+        border-top: 2px solid transparent;
+    }
+
+    .navbar-default .navbar-nav>li>a:hover
+    {
+        color: #fff;
+        border-bottom: 2px solid #9c1506;
+    }
+
+    #logo-contract {
+        position: relative;
+        margin-left: 30px;
+        top: 25px;
+    }
+
+    #logo-contractor {
+        position: relative;
+        float: right;
+        margin-right: 30px;
+        bottom: 25px;
+    }
+
+    p {
+        margin-top: 10px;
+    }
+    /* *****FIN SECTION HEADER***** */
+
+
+    /* ***** SECTION DIAPORAMA***** */
+
+    /* *****positionnement et habillage du diaporama***** */
+    #slider {
+        position: relative;
+        padding: 0px;
+        top: 70px;
+        border: 10px solid red;
+        border-radius: 110px;
+        box-shadow: 0px 0px 50px 15px grey;   
+    }
+
+    /* *****positionnement et habillage du texte de lÃ©gende***** */
+    #titre {
+        background-color: rgba(252, 247, 247, 0.9);
+        position: absolute;
+        bottom: 35%;
+        width: 23%;
+        left: 56%;
+        font-size: 1.5em;
+        color: red;
+        border-radius: 40px 40px 40px 40px;
+        padding: 10px 10px 10px 20px;
+    }
+
+
+    /***** *positionnement et taille du bloc image***** */
+    .slideImg {
+        position: absolute;
+        top: calc(77% - 300px);
+        width: 600px;
+        height: auto;
+        left: calc(50% - 400px);
+    }
+
+    #slideImg>img {
+        width: 35%;
+        height: 50%;
+    }
+
+    #slide>img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100px;
+        box-shadow: 0px 44px 20px #F5DEB3;/* couleur blé */
+    }
+
+    .img-circle {
+        position: absolute;
+        bottom: 27%;
+        left: 18%;
+        opacity: 0.9;
+    }
+
+    .btn-left,
+    .btn-right {
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+    .btn-left:hover,
+    .btn-right:hover {
+        background: #CC3300;
+        opacity: 0.5;
+    }
+
+    .btn-left {
+        left: 15px;
+        margin-left: 5px;
+    }
+
+    .btn-right {
+        right: 15px;
+        margin-right: 5px;
+    }
+
+    .btn-custom {
+        background-color: #F5F5DC; /* couleur beige*/
+    }
+
+    /*centrage bouton de controle du slider*/
+    .btn-group{
+    margin-left:calc(50% - 55px);
+    bottom: 5px;
+    /*box-shadow:  8px 8px 4px #aaa; */
+    }
+    .btn-custom:active {
+        background: #FFDAB9;
+    }
+    /* *****FIN SECTION DIAPORAMA***** */
+
+
+    /* *****SECTION MAP****** */
+    section {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    #map {
+        position: relative;
+        top: 50px;
+        min-height: 650px;
+        border: 2px solid gainsboro;
+        border-radius: 10px;
+        opacity: 0.9;
+        padding-bottom: 30px;
+        margin-bottom: 25px;
+        box-shadow: 0px 0px 20px 6px lightgrey;
+    }
+    /* *****FIN SECTION MAP ***** */
+
+
+    /* *****SECTION ASIDE & INFOS***** */
+    /* *****positionnement & habillage du bloc infos***** */
+    #infos {
+        display: none;
+        background: aliceblue;
+        z-index: 0;
+        border: 1px solid lightpink;
+        position: relative;
+        margin-top: 4%;
+        margin-left: 7.4%;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 10px 5px 5px red;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    #status {
+        font-family: cursive;
+        font-weight: bolder;
+    }
+
+    /* *****centrage du titre signature***** */
+    #signatures {
+        margin-left: auto;
+        margin-right: auto;
+        width: 125px;
+    }
+
+    #signaturesCanvas {
+        display: none;
+    }
+
+    #cancel {
+        display: none;
+    }
+
+
+    /* *****Contenu du Aside***** */
+    #station {
+        box-shadow: 8px 8px 4px #aaa;
+        background-color: rgba(171, 171, 171, 0.3);
+        border-radius: 10px;
+        font-size: 1.2em;
+        max-height: 680px;
+    }
+
+    /* *****liste a puces Aside***** */
+    aside ul {
+        list-style-type: none;
+        padding-left: 5px;
+    }
+
+    .main_name h2 {
+        display: none;
+    }
+
+    /* *****Titres Aside***** */
+    aside .main_title {
+        font-size: 18px;
+        padding-top: 5px;
+        color: rgb(178, 39, 37);
+        background-color: rgba(255, 182, 193, 0.1);
+    }
+
+    li {
+        list-style: none;
+    }
+
+    #bikeAdress {
+        text-transform: uppercase;
+    }
+
+
+    /* *****styliser les boutons***** */
+    button {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+
+    /* *****Bouton de fermeture du Aside***** */
+    .close {
+        color: rgb(178, 39, 37);
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+
+    /* *****effet lors du survol de la souris sur la croix***** */
+    .close:hover,
+    .close:focus {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* *****styliser les bordures du canvas***** */
+    #canvas {
+        border: 1px solid black;
+    }
+
+
+    /* *****styliser & positionner le bloc signature***** */
+    #signInfo {
+        position: relative;
+        font-size: 1.5em;
+        display: block;
+        left: 18%;
+        top: 100px;
+        z-index: 300;
+    }
+
+
+    /* *****styliser & positionner le bouton (annuler la rÃ©servation)***** */
+    #annulation {
+        display: none;
+        margin-top: 8px;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 1em;
+        border-radius: 20px;
+    }
+    /* *****FIN SECTION ASIDE & INFOS***** */
+
+
+    /* *****SECTION FOOTER***** */
+    footer {
+        border: 1px solid red;
+        border-radius: 6px;
+        text-align: center;
+        color: black;
+    }
+
+    #footer {
+        height: auto;
+        padding-bottom: 10px;
+    }
+    #signInfo {
+        color: rgb(178, 39, 37);
+    }
+    #countdown {
+        display: none;
+        color: orangered;
+        font-size: 1.2em;
+    }
+    div>.text-danger {
+        font-family: cursive;
+        font-size: 15px;
+    }
+
+    /* *****positionnement & taille des éléments dans le footer***** */
+    #reservationFooter {
+        display: none;
+        color: red;
+        margin-top: 15px;
+        font-size: 1.5em;
+    }
+    /* *****FIN SECTION FOOTER***** */
+
+
+    /* ***** CORRECTION DU DISPLAY EN RESPONSIVE ***** */
+    @media screen and (max-width: 360px) {
+        #slider {
+            top: 44px;
+        }
+        #map {
+            top: 40px;
+            min-height: 350px;
+        }
+        #reservationFooter,
+        #annulation {
+            font-size: 0.95em;
+        }
+    }
+
+    @media only screen and (max-device-width:980px) {
+        #logo-contractor {
+            right: 7%;
+        }
+        #titre {
+            font-size: 0.9em;
+            left: 54%;
+            width: 34%;
+        }
+        #prev>img,
+        #next>img {
+            width: 20px;
+        }
+        #slider {
+            border: 5px solid red;
+            width: 97%;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        #titre {
+            font-size: 0.7em;
+            left: 55%;
+            width: 32%;
+        }
+        #logo-contract>img,
+        #logo-contractor>img {
+            width: 25%;
+        }
+        #logo-contract>img {
+            position: relative;
+            bottom: 14px;
+        }
+        #logo-contractor>img {
+            position: relative;
+            left: 75%;
+            top: 12px;
+        }
+        .navbar-default .navbar-nav>li>a:hover,
+        .navbar-default .navbar-nav>li>a:focus {
+            border-top: none;
+        }
+        .navbar-default .navbar-nav>li>a {
+            color: red;
+        }
+        .navbar-nav>li>a {
+            font-size: 15px;
+        }
+        .collapse.in {
+            overflow: hidden;
+            height: 120px;
+            width: 100%;
+            margin-left: 15%;
+        }
+        #slider {
+            top: 40px;
+            border: 6px solid red;
+            border-radius: 105px;
+            box-shadow: 0px 0px 30px 5px grey;
+        }
+        #prev>img,
+        #next>img {
+            width: 15px;
+        }
+        .btn-left,
+        .btn-right {
+            top: 48%;
+        }
+        #map {
+            top: 30px;
+            min-height: 350px;
+        }
+        #infos {
+            margin-top: 0;
+            box-shadow: 0 5px 5px red;
+        }
+        #signInfo {
+            left: 5%;
+        }
+        #reservationFooter,
+        #annulation {
+            font-size: 1.2em;
+        }
+    }
+
+    @media screen and (min-height: 768px) and (max-width: 1024px) {
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            left: calc(50% - 140px);
+        }
+        .navbar-nav>li>a {
+        font-size: 16px;
+        }
+
+        #logo-contractor {
+            float: right;
+        }
+
+        #infos {
+            margin-left: 2.5%;
+            width: 30%;
+        }
+        #map {
+            margin-bottom: 20px;
+        }
+        .close {
+            left: 92%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        #infos {
+            top: 20px;
+            width: 100%;
+            box-shadow: 0 5px 5px red;
+            margin-left: 0;
+        }
+        #footer {
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+        #annulation {
+            font-size: 1em;
+        }
+    }
+    /* ***** FIN DE CORRECTION DU DISPLAY EN RESPONSIVE ***** */
