@@ -36,10 +36,10 @@ var globalMain = {
         slider.push(slide5);
 
         // gestion du changement de slide par flèches gauche et droite du clavier
-        document.addEventListener("keydown", function(e) {
-            if (e.keyCode === 37) {
+        document.addEventListener("keydown", function(event) {
+            if (event.key === 'ArrowLeft') {
                 monSlider.deplacement(-1);
-            } else if (e.keyCode === 39) {
+            } else if (event.key === 'ArrowRight') {
                 monSlider.deplacement(1);
             }
         });
@@ -104,18 +104,18 @@ var globalMain = {
             var infowindow = new google.maps.InfoWindow();
             // Si il y a une réservation dans le storage
             if (typeof sessionStorage.station != 'undefined') {
-                document.getElementById("reservationFooter").innerHTML = "Vous avez une réservation en cours à la station : " + sessionStorage.station;
-                document.getElementById("reservationFooter").style.color = "initial";
+                document.getElementById("reservationSection").innerHTML = "Vous avez une réservation en cours à la station : " + sessionStorage.station;
+                document.getElementById("reservationSection").style.color = "initial";
                 document.getElementById("countdown").innerHTML = Timer.initChrono();
-                document.getElementById("reservationFooter").style.display = "block";
+                document.getElementById("reservationSection").style.display = "block";
                 document.getElementById("countdown").style.display = "block";
                 document.getElementById("annulation").style.display = "block";
                 document.getElementById("footer").style.backgroundColor = "honeydew";
                 document.getElementById("footer").style.opacity = "0.9";
             } else {
-                document.getElementById("reservationFooter").style.display = "block";
-                document.getElementById("reservationFooter").innerHTML = "Vous n'avez pas de réservation";
-                document.getElementById("reservationFooter").style.color = "initial";
+                document.getElementById("reservationSection").style.display = "block";
+                document.getElementById("reservationSection").innerHTML = "Vous n'avez pas de réservation";
+                document.getElementById("reservationSection").style.color = "initial";
                 document.getElementById("footer").style.backgroundColor = "";
                 document.getElementById("footer").style.opacity = "";
             };
@@ -162,7 +162,7 @@ var globalMain = {
             });
             // Regroupement des markers 
             this.markerCluster = new MarkerClusterer(Map.map, Map.markers, {
-                imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+                imagePath: 'images/cluster_images/m'
             });
         });
 

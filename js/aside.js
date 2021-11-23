@@ -7,16 +7,18 @@
             Map.currentMarker = this.marker;
             // Resize de la map
             this.sizeMap = document.getElementById('map');
+
             // La aside apparaitra au click sur un marker
             this.info = document.getElementById('infos');
             this.aside = document.getElementById('stations');
+
             // Le span comprenant la croix de fermeture de l'aside
             this.span = document.getElementsByClassName("close")[0];
+
             this.stationName = document.getElementById("station_name");
             this.bikeAdress = document.getElementById("bikeAdress");
             this.available_bikes = document.getElementById("available_bikes");
-            this.terminalPaie = document.getElementById("terminalPaie");
-            this.terminalPaieTitle = document.getElementById("terminalPaieTitle");
+            this.banking = document.getElementById("banking");
             this.available_bike_stands = document.getElementById("available_bike_stands");
             this.status = document.getElementById("status");
             this.signInfo = document.getElementById('signInfo');
@@ -25,7 +27,7 @@
             this.cancel = document.getElementById('cancel');
             this.validation = document.getElementById('validation');
             this.erase = document.getElementById('erase');
-            this.reservationFooter = document.getElementById('reservationFooter');
+            this.reservationSection = document.getElementById('reservationSection');
             this.stationName.textContent = this.marker.station_name;
             this.bikeAdress.textContent = this.marker.bikeAdress;
             this.status.textContent = this.marker.status;
@@ -44,28 +46,36 @@
             });
 
             // pas de réservation si vélos non dispo ou si station en travaux
-            if (this.marker.available_bikes === 0 || this.marker.status != 'OPEN') {
-                this.available_bikes.textContent = "Aucun Vélo'V n'est disponible pour le moment.  Essayer sur une borne voisine !";
+            if(this.marker.available_bikes === 0 || this.marker.status != 'OPEN') {
+                this.available_bikes.textContent = " Actuellement indisponible.";
                 this.available_bikes.style.color = "initial";
                 this.signaturesCanvas.style.display = "none";
                 this.booking.style.display = 'none';
                 this.cancel.style.display = 'none';
-            } else {
+            }else{
                 this.booking.style.display = 'inline-block';
                 this.available_bikes.style.color = "green";
             };
-            if (this.marker.available_bike_stands === 0) {
+            if(this.marker.available_bike_stands === 0) {
                 this.available_bike_stands.style.color = "red";
-            } else {
+            }else{
                 this.available_bike_stands.style.color = "green";
 
             }
-            if (this.marker.status != 'CLOSED') {
+            if(this.marker.status != 'CLOSED') {
                 this.status.textContent = "Ouverte";
                 this.status.style.color = "green";
-            } else {
+            }else{
                 this.status.textContent = "Fermée";
                 this.status.style.color = "red";
+            }
+            if(this.marker.banking == true)
+            {
+                this.banking.textContent = 'Oui';
+                this.banking.style.color = "yellowGreen";
+            }else{
+                this.banking.textContent = 'Non';
+                this.banking.style.color = '#330000';
             }
         }
     };

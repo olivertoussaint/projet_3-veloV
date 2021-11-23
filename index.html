@@ -6,12 +6,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="Projet n°3 étudiant Developpeur web junior à Openclassooms. Application pour réservation de Velo'v sur la ville de Lyon et sa proche banlieue. Projet réalisé en JavaScript ES5, Bootstrap 3.3.7, Font-awesome 4.7.0 et l'API JC Decaux en temps réel.">
+        <meta name="description" content="Projet n°3 étudiant Developpeur web junior à Openclassooms. Application pour réservation de Velo'v sur la ville de Lyon et sa proche banlieue. Projet réalisé en JavaScript ES5, Bootstrap 4.6.1, Font-awesome 4.7.0 et l'API JC Decaux en temps réel.">
         <meta name="author" content="Olivier Toussaint">
-        <!--Favincon-->
+        <!--Favicon-->
         <link rel="icon" type="image/png" href="./images/favicon.png" />
-        <!-- Bootstrap core CSS -->    
-        <link href="./assets/css/bootstrap.min.css" rel="stylesheet">       
+        <!-- Bootstrap CSS -->    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> 
+        <!-- Google Fonts-->    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap" rel="stylesheet"> 
         <!-- Font-awesome library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- Main stylesheet -->
@@ -22,29 +26,47 @@
     <body>
         <!--HEADER-->
         <header>
-            <nav class="navbar navbar-default navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="nav-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <div id="logo-contract"><img src="./images/logo-contract.png" alt="logo marque Velo'v" /></div>
-                            <div id="logo-contractor"><img src="./images/logo-contractor.png" alt="logo Grand Lyon" /></div>
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li><a href="#slider" class="active">Accueil</a></li>
-                                <li><a href="#map">Carte</a></li>
-                                <li><a href="#footer">Réservation</a></li>
-                            </ul>
-                        </div>
-                    </div>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+                <div class="container">
+            
+                  <!-- Brand -->
+                  <a class="navbar-brand" href="#">
+                    <img src="./images/logo-contract.png" alt="logo marque Velo'v" />
+                  </a>
+            
+                  <!-- Collapse -->
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+            
+                  <!-- Links -->
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="#slider">Accueil
+                          <span class="sr-only">(current)</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#map">Carte</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#reservationSection">R&eacute;servation</a>
+                      </li>
+                    </ul>
+            
+                    <!-- Right -->
+                    <ul class="navbar-nav nav-flex-icons">
+                      <li class="nav-item">
+                            <img src="./images/logo-contractor.png" alt="logo Grand Lyon" />
+                      </li>
+                    </ul>           
+                  </div>           
                 </div>
-            </nav>
+              </nav>
         </header>
         <!--SLIDER-->
         <section id="slider" class="container">
@@ -72,8 +94,8 @@
                 <aside id="stations">
                     <div class="container">
                         <div class="row">
-                            <div id="infos" class="col-sm-12 col-md-offset-1 col-md-3">
-                                <h3>Détails de la station</h3>
+                            <div id="infos" class="col-sm-12 col-md-offset-1 col-md-11">
+                                <h4 class="mt-3 ml-3">Détails de la station</h4>
                                 <span class="close" title="fermer">&times;</span>
                                 <ul>
                                     <li class="main_title">Nom de la station</li>
@@ -82,6 +104,8 @@
                                     <li id="bikeAdress"></li>
                                     <li class="main_title">&Eacute;tat de la station</li>
                                     <li id="status"></li>
+                                    <li class="main_title">Terminal de paiement</li>
+                                    <li id="banking"></li>
                                     <li class="main_title">Place(s) libre(s)</li>
                                     <li id="available_bike_stands"></li>
                                     <li class="main_title">Nombre de vélo(s) disponible(s)</li>
@@ -104,31 +128,37 @@
                 </aside>
             </div>
         </section>
-        <section class="container">
+        <section class=" container" id="bg-custom">
             <div class="row">
-                <div class="col-lg-12" id="reservationFooter">
+                <div class="col-lg-12" id="reservationSection">
                 </div>
                 <div id="countdown"></div>
                 <button class="btn btn-danger" id="annulation">Annuler la réservation</button>
-                <div>
-                    <p class="text-danger"><span class="fa fa-exclamation" aria-hidden="true"></span> Ceci est un site de démonstration.</p>
-                </div>
+              </div>
+            </section>
+            <div class="demoSite" id="demoSite">
+                <div class="text-center"><span class="fa fa-exclamation" aria-hidden="true"></span> Ceci est un site de démonstration.</div>
             </div>
-        </section>
         <!--FOOTER-->
-            <foooter id="footer" class="">
-                <p>Olivier</p>
+            <!-- Copyright -->
+            <footer id="footer">
+              <div class="footer-copyright text-center pt-3 pb-2">
+                © 2018-2021 Copyright: Olivier Toussaint | All rights reserved 
+                
+              </div>
             </footer>
+        <!-- Copyright -->
+
         <!-- Bootstrap core JavaScript
                     ================================================== -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="./dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
         <!--controle du scroll-->
         <script src="./assets/js/smooth_scroll.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
         <!--Google Maps-->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.34&key=AIzaSyDfd5_S7FhKgI4-WQOzIhjKCKOre_hS_DQ"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.48&key=AIzaSyDfd5_S7FhKgI4-WQOzIhjKCKOre_hS_DQ"></script>
         <!-- local map -->
         <script src="./js/map.js"></script>
         <!--fonction appel ajax-->

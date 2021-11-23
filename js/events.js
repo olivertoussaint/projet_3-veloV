@@ -24,24 +24,29 @@
                 cancel.disabled = true;
                 Map.currentMarker.available_bikes--;
                 Aside.initAside();
-                reservationFooter.style.display = 'inline-block';
+                reservationSection.style.display = 'inline-block';
                 document.getElementById("footer").style.backgroundColor = "";
                 document.getElementById("footer").style.backgroundColor = "honeydew";
                 document.getElementById("footer").style.opacity = "0.8";
                 signaturesCanvas.style.display = 'none';
+
                 // Récupération et stockage des données nécessaire à la réservation
                 var heureReservation = new Date().getTime();
                 sessionStorage.setItem('heure', heureReservation);
                 sessionStorage.setItem('station', Map.currentMarker.station_name);
                 sessionStorage.setItem('dispo', Map.currentMarker.available_bikes);
+
                 //Valeur du storage dans variable globales
                 sessionStation = sessionStorage.getItem('station');
                 sessionHeure = sessionStorage.getItem('heure');
-                reservationFooter.textContent = "Vous avez réservé un vélo à la station : " + sessionStorage.station;
+                reservationSection.textContent = "Vous avez réservé un vélo à la station : " + sessionStorage.station;
+
                 //Démarrage du compte à rebours
                 Timer.initChrono();
+
                 //affichage de la div countDown
                 Timer.countdown.style.display = "block";
+                
                 //on efface la signature du canvas
                 canvasSignature.clearCanvas();
             }
@@ -67,12 +72,13 @@
                     return;
                 }
             }
-            document.getElementById("reservationFooter").innerHTML = "Réservation annulée";
-            document.getElementById("reservationFooter").style.color = "";           
-            //Affichage ou non affichage des éléments après 3 secondes
+            document.getElementById("reservationSection").innerHTML = "Réservation annulée";
+            document.getElementById("reservationSection").style.color = "#ffffff"; 
+
+            //Affichage ou non des éléments après 3 secondes
             setTimeout(function() {
-                document.getElementById("reservationFooter").innerHTML = "Vous n'avez pas de réservation";
-                document.getElementById("reservationFooter").style.color = "initial";
+                document.getElementById("reservationSection").innerHTML = "Vous n'avez pas de réservation";
+                document.getElementById("reservationSection").style.color = "initial";
                 booking.disabled = false;
                 document.getElementById("cancel").style.display = "none";
                 document.getElementById("footer").style.backgroundColor = "";
@@ -82,8 +88,7 @@
             document.getElementById("countdown").style.display = "none";
         }
     };
-
-    
+   
     // annulation de l'Object Canvas
     document.getElementById('cancel').addEventListener('click', function() {
         this.canvas = document.getElementById('canvas');
@@ -92,6 +97,7 @@
         canvas.width = this.canvas.width; //effacement tactile
         this.validCanvas = false; //passage de la validation a fausse
     }, false);
+
     // effacement de l'Object Canvas
     document.getElementById('erase').addEventListener('click', function() {
         this.canvas = document.getElementById('canvas');

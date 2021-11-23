@@ -1,15 +1,13 @@
-    body,
-    html {
+    *,::before,::after {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
 
     body {
         padding-top: 10px;
         background-image: url("../images/fond.jpg");
-        background-position: center;
         background-size: cover;
-
     }
 
     h2 {
@@ -17,30 +15,24 @@
     }
 
     /* *****SECTION HEADER***** */
-    /* .container-fluid,
-    footer {
-        background-color: rgba(255, 250, 250, 0.9);
-    } */
-
-    .navbar-default .navbar-collapse,
-    .navbar-default .navbar-form {
+    .navbar-dark .navbar-collapse,
+    .navbar-dark .navbar-form {
         position: relative;
         border-color: transparent;
-        left: calc(50% - 100px);
-        bottom: 30px;
+        width: calc(100% -80px);
     }
 
-    .navbar-default {
-       background-color: red;
-       background-image: linear-gradient(to right, red , yellow); 
+    .navbar-dark {
+        background-image: radial-gradient(circle at center left, rgb(255, 255, 255),rgb(255,18,18));
     }
 
-    .navbar-nav>li>a {
+    .navbar-dark .navbar-nav .nav-link {
         font-size: 18px;
         border-top: 2px solid transparent;
+        color: rgb(104, 102, 102);
     }
 
-    .navbar-default .navbar-nav>li>a:hover
+    .navbar-dark .navbar-nav .nav-link:hover
     {
         color: #fff;
         border-bottom: 2px solid #9c1506;
@@ -50,13 +42,6 @@
         position: relative;
         margin-left: 30px;
         top: 25px;
-    }
-
-    #logo-contractor {
-        position: relative;
-        float: right;
-        margin-right: 30px;
-        bottom: 25px;
     }
 
     p {
@@ -70,11 +55,14 @@
     /* *****positionnement et habillage du diaporama***** */
     #slider {
         position: relative;
-        padding: 0px;
-        top: 70px;
-        border: 10px solid red;
-        border-radius: 110px;
-        box-shadow: 0px 0px 50px 15px grey;   
+    padding: 0px;
+    top: 70px;
+    border: 5px solid;
+    border-radius: 110px;
+    box-shadow: 0px 0px 50px 15px grey;
+    border-left-color: white;
+    border-right-color: red;
+    border-top-color: lawngreen;   
     }
 
     /* *****positionnement et habillage du texte de lÃ©gende***** */
@@ -109,7 +97,11 @@
         width: 100%;
         height: 100%;
         border-radius: 100px;
-        box-shadow: 0px 44px 20px #F5DEB3;/* couleur blé */
+        box-shadow: 0 3.2em 1.8em #F5DEB3;/* couleur blé */
+    }
+
+    .img-thumbnail {
+        border: none;
     }
 
     .img-circle {
@@ -151,8 +143,8 @@
     .btn-group{
     margin-left:calc(50% - 55px);
     bottom: 5px;
-    /*box-shadow:  8px 8px 4px #aaa; */
     }
+
     .btn-custom:active {
         background: #FFDAB9;
     }
@@ -167,13 +159,13 @@
 
     #map {
         position: relative;
-        top: 50px;
+        top: 80px;
         min-height: 650px;
         border: 2px solid gainsboro;
         border-radius: 10px;
         opacity: 0.9;
-        padding-bottom: 30px;
-        margin-bottom: 25px;
+        /* padding-bottom: 30px; */
+        margin-bottom: 3.8rem;
         box-shadow: 0px 0px 20px 6px lightgrey;
     }
     /* *****FIN SECTION MAP ***** */
@@ -187,8 +179,8 @@
         z-index: 0;
         border: 1px solid lightpink;
         position: relative;
-        margin-top: 4%;
-        margin-left: 7.4%;
+        margin-top: 3rem;
+        margin-left: 1.9rem;
         padding-bottom: 10px;
         border-radius: 10px;
         box-shadow: 10px 5px 5px red;
@@ -201,6 +193,10 @@
     #status {
         font-family: cursive;
         font-weight: bolder;
+    }
+    #banking, #available_bikes, #available_bike_stands {
+        font-family: 'Homemade Apple', cursive;
+        font-size: 1.5em;
     }
 
     /* *****centrage du titre signature***** */
@@ -217,7 +213,6 @@
     #cancel {
         display: none;
     }
-
 
     /* *****Contenu du Aside***** */
     #station {
@@ -254,13 +249,11 @@
         text-transform: uppercase;
     }
 
-
     /* *****styliser les boutons***** */
     button {
         margin-bottom: 10px;
         margin-top: 10px;
     }
-
 
     /* *****Bouton de fermeture du Aside***** */
     .close {
@@ -271,7 +264,6 @@
         font-size: 30px;
         font-weight: bold;
     }
-
 
     /* *****effet lors du survol de la souris sur la croix***** */
     .close:hover,
@@ -285,7 +277,6 @@
         border: 1px solid black;
     }
 
-
     /* *****styliser & positionner le bloc signature***** */
     #signInfo {
         position: relative;
@@ -296,47 +287,74 @@
         z-index: 300;
     }
 
-
-    /* *****styliser & positionner le bouton (annuler la rÃ©servation)***** */
+    /* *****styliser & positionner le bouton (annuler la réservation)***** */
     #annulation {
         display: none;
-        margin-top: 8px;
+        margin-top: 20px;
         margin-right: auto;
         margin-left: auto;
+        margin-bottom: 21px;
         font-size: 1em;
+        border: 1px solid burlywood;
         border-radius: 20px;
+        box-shadow: 0 0 10px;
     }
-    /* *****FIN SECTION ASIDE & INFOS***** */
 
+    .demoSite {
+        background:-webkit-linear-gradient(top, rgb(255, 255, 255) 30%, rgb(246, 5, 5) 70%);
+        background-clip:text;
+        -webkit-background-clip:text;
+        color:transparent;
+    }
+
+    /* #demoSite {
+        text-align: center;
+    } */
+
+    /* *****FIN SECTION ASIDE & INFOS***** */
 
     /* *****SECTION FOOTER***** */
     footer {
-        border: 1px solid red;
+        margin-top: 2rem;
+        background-image: radial-gradient(circle at center left, rgb(255, 255, 255),rgb(255,18,18));
+        border: 1px solid transparent;
         border-radius: 6px;
         text-align: center;
-        color: black;
+        color: rgb(47, 44, 44);
+    }
+
+    #bg-custom {
+        background-image: radial-gradient(circle at center left, rgba(255,255,255, 0.49),rgb(255,18,18));
+        text-align: center;
+        border-radius: 10px;
     }
 
     #footer {
         height: auto;
         padding-bottom: 10px;
     }
+
     #signInfo {
         color: rgb(178, 39, 37);
     }
+
     #countdown {
         display: none;
-        color: orangered;
-        font-size: 1.2em;
+        width: 100%;
+        font-size: 1.5em;
+        font-weight: 600;
+        font-family: 'Homemade Apple', cursive;;
     }
-    div>.text-danger {
+
+    .text-danger {
         font-family: cursive;
         font-size: 15px;
     }
 
     /* *****positionnement & taille des éléments dans le footer***** */
-    #reservationFooter {
+    #reservationSection {
         display: none;
+        height: 6vh;
         color: red;
         margin-top: 15px;
         font-size: 1.5em;
@@ -353,7 +371,7 @@
             top: 40px;
             min-height: 350px;
         }
-        #reservationFooter,
+        #reservationSection,
         #annulation {
             font-size: 0.95em;
         }
@@ -438,7 +456,7 @@
         #signInfo {
             left: 5%;
         }
-        #reservationFooter,
+        #reservationSection,
         #annulation {
             font-size: 1.2em;
         }

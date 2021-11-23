@@ -10,7 +10,7 @@ var Map = {
         this.validation = document.getElementById('validation');
         this.erase = document.getElementById('erase');
         this.annulation = document.getElementById('annulation');
-        this.reservationFooter = document.getElementById('reservationFooter');
+        this.reservationSection = document.getElementById('reservationSection');
         this.myLatLng = new google.maps.LatLng(45.767395998075955, 4.839092227539027);
         this.options = {
             center: this.myLatLng,
